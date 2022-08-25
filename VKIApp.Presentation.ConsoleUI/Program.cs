@@ -7,9 +7,11 @@ namespace VKIApp.Presentation.ConsoleUI
         //public static ushort sayac = 0;
         public static void Main()
         {
+            VKIApp.Domain.HastaService.LoadListFromFile();
             Menu();
-        }
-
+        } 
+        //public static Hasta lastHasta = HastaService.liste.Last<Hasta>();
+        
         private static void Menu()
         {
             Console.Clear();
@@ -159,7 +161,6 @@ namespace VKIApp.Presentation.ConsoleUI
             double kilo = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Hastanın Boyu (cm): ");
             double boy = Convert.ToDouble(Console.ReadLine());
-
 
             var data = HastaService.HastaKaydet(doktorAdi,hastaAdi,hastaSoyadi,kilo,boy);
 

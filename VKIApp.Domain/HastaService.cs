@@ -6,7 +6,7 @@ namespace VKIApp.Domain
 {
     public class HastaService
     {
-        private static List<Hasta> liste = new List<Hasta>();
+        public static List<Hasta> liste = new List<Hasta>();
 
         public static void HastayiSil(int index)
         {
@@ -19,6 +19,7 @@ namespace VKIApp.Domain
         {
             Hasta hasta = new Hasta();
             hasta.doktor = doktorAdi;
+            hasta.hastaNo = (ushort)(GetLastHastaNo()+1);
             hasta.hastaAdi = adi;
             hasta.hastaSoyadi = soyadi;
             hasta.kilo = kilo;
@@ -67,6 +68,10 @@ namespace VKIApp.Domain
             liste = JsonSerializer.Deserialize<List<Hasta>>(json,
                 new JsonSerializerOptions { IncludeFields = true });
         }
-
+        public static int GetLastHastaNo()
+        {
+            Hasta lastHasta = liste.Last<Hasta>();
+            return lastHasta.hastaNo;
+        }
     }
 }

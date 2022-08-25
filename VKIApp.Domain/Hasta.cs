@@ -5,11 +5,16 @@ namespace VKIApp.Domain
     public class Hasta
     {
      
-        public Hasta()
-        {
-            sayac++;
-            hastaNo = sayac;
-        }
+        //public Hasta(int sayac2)
+        //{
+            
+        //    //sayac2++;
+        //    //sayac++;
+        //    //hastaNo = sayac;
+        //}
+        //public Hasta()
+        //{
+        //}
         private static ushort sayac;
         public ushort hastaNo;
         public string doktor;
